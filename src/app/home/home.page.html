@@ -1,0 +1,61 @@
+<ion-header >
+  <ion-toolbar color="secondary">
+    <ion-title>
+      Weather Api
+    </ion-title>
+  </ion-toolbar>
+<ion-toolbar>
+  
+  
+    <ion-searchbar [(ngModel)]='topic' placeholder='Enter City Name' (keyup.enter)='search()'></ion-searchbar>
+  
+ 
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+ 
+  <ion-button   expand='block' (click)='search()' >Search</ion-button>
+
+  <ion-card color="secondary"  *ngIf='x'>
+  <ion-card-content>
+  <div *ngFor='let item of newsData' >
+<h3>City name:{{city}}</h3>
+<br>
+  
+   <p>
+    Description : 
+     {{item.description}}
+   </p>
+   </div> 
+<br>
+  <div *ngIf="feels">
+   
+    <p>
+      Feels Like : 
+       {{feels.feels_like- 273.15| number:'2.0-0'}}
+    </p>
+        <br>
+     <p> 
+       Humidity : 
+       {{feels.humidity}}
+     </p>
+     <br>
+     
+     
+     <p> Minimum Temperature : 
+       {{feels.temp_max - 273.15 | number:'2.0-0'}}
+     </p>
+     <br>
+     <p> Maximium Temperature : 
+       {{feels.temp_min - 273.15 | number:'2.0-0'}}
+     </p>
+     </div>
+
+    </ion-card-content>
+   </ion-card>
+
+
+
+</ion-content> 
